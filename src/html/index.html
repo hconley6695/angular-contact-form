@@ -7,7 +7,33 @@
 <body>
   <div ng-app="app">
   	<div class="container" ng-controller="MainController">
+  		<form ng-submit="addContact()">
+      <h2>Contact Us</h2>
+  			<p>
+  				<label class="label">Full Name</label>
+          <br/>
+  				<input name="fullname" type="text" placeholder="Sally Smith">
+  			</p>
+  			<p>
+  				<label class="label">Email</label>
+          <br/>
+  				<input name="email" type="email" placeholder="ssmith@gmail.com">
+  			</p>
+  			<p>
+  				<label class="label">Personal Website</label>
+          <br/>
+  				<input type="url" name="website" placeholder="http://www.ssmith.com">
+  			</p>
+  			<p>
+  				<label class="label-area">Comments</label>
+          <br/>
+  				<textarea type="textarea" name="comments" placeholder="A friendly message ..."></textarea>
+  			</p>
+  			<p>
+  				<button>SUBMIT</button>
+  			</p>
 
+  	</form>
   	</div>
 
 

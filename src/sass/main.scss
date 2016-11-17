@@ -3,4 +3,66 @@
 // Turn on freq used libraries
 // @import 'normalize-css/normalize';
 // @import 'font-awesome/scss/font-awesome';
-@import "bulma";
+// @import 'bulma';
+
+body {
+	padding: 0;
+	margin: 30px;
+	background-color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	height: 400px;
+	width: 400px;
+	border: .5px solid black;
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+h2 {
+	font-style: bold;
+	margin-left: 10px;
+	font-size: 18px;
+}
+
+p {
+	margin-left: 10px;
+}
+
+label {
+
+	font-size: 12px;
+	vertical-align: bottom;
+}
+
+
+input {
+	font-size: 8px;
+	padding: 5px;
+	border: .5px solid black;
+	border-left: 5px solid black;
+	width: 348px;
+}
+
+textarea {
+	height: 80px;
+	width: 350px;
+	font-size: 8px;
+	border: .5px solid black;
+	border-left: 5px solid black;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+button {
+	height: 40px;
+	width: 100px;
+	background-color: #32b54c;
+	border: .25px solid #32b54c;
+	border-radius: 3px;
+}
+
+
