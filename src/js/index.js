@@ -1,6 +1,7 @@
 // Javascript Entry Point
 import angular from 'angular';
-
+import { MainController } from './maincontroller';
 
 angular
-	.module('app', []);
+	.module('app', [])
+	.controller('MainController', MainController);
