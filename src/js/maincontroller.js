@@ -44,10 +44,10 @@ function MainController($scope, $http) {
 
 	$scope.addContact = function (person) {
 		let newPerson = {
-			person: person, 
-			// email: email, 
-			// website: website, 
-			// comments: comments, 
+			name: person.name, 
+			email: person.email, 
+			website: person.website, 
+			comments: person.comments, 
 			id: $scope.contacts.length + 1
 		};
 		
@@ -56,7 +56,10 @@ function MainController($scope, $http) {
 		$scope.contacts.push(newPerson);
 		console.log($scope.contacts);
 
-		$scope.person = " ";
+		$scope.person.name = " ";
+		$scope.person.email = " ";
+		$scope.person.website = " ";
+		$scope.person.comments = " ";
 	}
 
 	// console.log($scope.contacts);

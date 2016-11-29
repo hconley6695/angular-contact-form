@@ -17,16 +17,16 @@
 
           <br/>
           
-  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person" ng-keyup="validateName(person)">
+  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person.name" ng-keyup="validateName(person)">
 
           <span class="input-error">{{errors.name}}</span>
   			</p>
 
 
-<!--   			<p>
+  			<p>
   				<label class="label">Email</label>
           <br/>
-  				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person.emailAddress)">
+  				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person)">
           <span class="input-error"> {{ errors.email }}</span>
   			</p>
 
@@ -44,7 +44,7 @@
           <span class="input-error"> {{ errors.msg }}</span>
           <br/>
   				<textarea type="textarea" name="comments" placeholder="A friendly message ..." ng-model="person.comments" ng-keyup="validateMsg(person.msg)"></textarea>
-  			</p> -->
+  			</p>
 
 
   			<p>
@@ -55,7 +55,13 @@
 
       <!--LIST IS COMMUNICATING CORRECTLY BUT NEED TO FIGURE OUT HOW TO TARGET NAME OF PERSON-->
       <ul class="list"> Here is the list: 
-        <li ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> {{stuff.person}} </li>
+        <li class="show-me" ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> 
+          {{stuff.name}} 
+          <br/>
+          {{stuff.website}}
+          <br/>
+          {{stuff.comments}}
+        </li>
       </ul>
   	</div>
 
