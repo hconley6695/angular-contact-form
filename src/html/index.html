@@ -23,31 +23,40 @@
   			</p>
 
 
-
-
-<!--   			<p>
+  			<p>
   				<label class="label">Email</label>
           <br/>
-  				<input name="email" type="email" placeholder="ssmith@gmail.com">
+  				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person.emailAddress)">
           <span class="input-error"> {{ errors.emailAddress }}</span>
   			</p>
+
+
   			<p>
   				<label class="label">Personal Website</label>
           <br/>
-  				<input type="url" name="website" placeholder="http://www.ssmith.com">
+  				<input type="url" name="website" placeholder="http://www.ssmith.com" ng-model="person.website" ng-keyup="validateWebsite(person.site)">
           <span class="input-error"> {{ errors.site }} </span>
   			</p>
+
+
   			<p>
   				<label class="label-area">Comments</label>
           <span class="input-error"> {{ errors.msg }}</span>
           <br/>
-  				<textarea type="textarea" name="comments" placeholder="A friendly message ..."></textarea>
-  			</p> -->
+  				<textarea type="textarea" name="comments" placeholder="A friendly message ..." ng-model="person.comments" ng-keyup="validateMsg(person.msg)"></textarea>
+  			</p>
+
+
   			<p>
   				<button>SUBMIT</button>
   			</p>
 
-  	</form>
+  	  </form>
+
+      <ul class="list"> Here is the list: 
+        <li>{{ contacts }}</li>
+
+      </ul>
   	</div>
 
 
