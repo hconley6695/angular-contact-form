@@ -7,7 +7,7 @@
 <body>
   <div ng-app="app">
   	<div class="container" ng-controller="MainController">
-  		<form ng-submit="addContact()">
+  		<form ng-submit="addContact(person)">
       <h2>Contact Us</h2>
 
 
@@ -17,17 +17,17 @@
 
           <br/>
           
-  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person.name" ng-keyup="validateName(person.name)">
+  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person" ng-keyup="validateName(person)">
 
           <span class="input-error">{{errors.name}}</span>
   			</p>
 
 
-  			<p>
+<!--   			<p>
   				<label class="label">Email</label>
           <br/>
   				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person.emailAddress)">
-          <span class="input-error"> {{ errors.emailAddress }}</span>
+          <span class="input-error"> {{ errors.email }}</span>
   			</p>
 
 
@@ -44,7 +44,7 @@
           <span class="input-error"> {{ errors.msg }}</span>
           <br/>
   				<textarea type="textarea" name="comments" placeholder="A friendly message ..." ng-model="person.comments" ng-keyup="validateMsg(person.msg)"></textarea>
-  			</p>
+  			</p> -->
 
 
   			<p>
@@ -53,9 +53,9 @@
 
   	  </form>
 
+      <!--LIST IS COMMUNICATING CORRECTLY BUT NEED TO FIGURE OUT HOW TO TARGET NAME OF PERSON-->
       <ul class="list"> Here is the list: 
-        <li>{{ contacts }}</li>
-
+        <li ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> {{stuff.person}} </li>
       </ul>
   	</div>
 
