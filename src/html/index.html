@@ -17,7 +17,7 @@
 
           <br/>
           
-  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person.name" ng-keyup="validateName(person)">
+  				<input name="name" type="text" placeholder="Sally Smith" ng-model="resp.name" ng-keyup="validateName(person)">
 
           <span class="input-error">{{errors.name}}</span>
   			</p>
@@ -57,10 +57,10 @@
       <ul class="list"> Here is the list: 
         <li class="show-me" ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> 
           {{stuff.name}} 
-          <br/>
+ <!--          <br/>
           {{stuff.website}}
           <br/>
-          {{stuff.comments}}
+          {{stuff.comments}} -->
         </li>
       </ul>
   	</div>
