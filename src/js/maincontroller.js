@@ -7,20 +7,9 @@ function MainController($scope, $http) {
 
 
 	function init() {
-
-		console.log($scope.contacts);
-
 		$http.get(SERVER).then((resp) => {
-			// console.log(resp.data);
-
 			$scope.contacts = resp.data;
-			//THIS IS HERE TO CUT DOWN ON SEEING WHAT IS IN ARRAY
-			console.log($scope.contacts);
-
 		});
-		
-
-
 	};
 
 	init();
@@ -31,28 +20,21 @@ function MainController($scope, $http) {
 			//CREATED NEW OBJECT
 			console.log ('response', resp);		
 			let person = resp.data; 
-			// let person = {
-			// 	name: resp.name, 
-			// 	email: resp.email, 
-			// 	website: resp.website, 
-			// 	comments: resp.comments, 
-			// 	id: $scope.contacts.length + 1
-			// };
+
 			console.log('person', person);
+
+
+			//ADDING NEW PERSON TO ARRAY NAMED CONTACTS
 			$scope.contacts.push(person);
 			console.log($scope.contacts);
 
-		})
-		
-	
-		//ADDING NEW PERSON TO ARRAY NAMED CONTACTS
+			//CLEARING INPUT SO THAT PLACEHOLDERS SHOW UP AFTER PRESS SUBMIT BUTTON
+			$scope.person.name = " ";
+			$scope.person.email = " ";
+			$scope.person.website = " ";
+			$scope.person.comments = " ";		
 
-		// console.log($scope.contacts);
-		//CLEARING INPUT SO THAT PLACEHOLDERS SHOW UP AFTER PRESS SUBMIT BUTTON
-		// $scope.person.name = " ";
-		// $scope.person.email = " ";
-		// $scope.person.website = " ";
-		// $scope.person.comments = " ";
+		});
 	}
 
 
