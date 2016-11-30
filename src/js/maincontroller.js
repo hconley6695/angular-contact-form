@@ -11,12 +11,10 @@ function MainController($scope, $http) {
 		console.log($scope.contacts);
 
 		$http.get(SERVER).then((resp) => {
-			console.log(resp.data);
+			// console.log(resp.data);
 
 			$scope.contacts = resp.data;
-			$scope.contacts.splice(0, 4);
-			$scope.contacts.splice(2, 6);
-
+			//THIS IS HERE TO CUT DOWN ON SEEING WHAT IS IN ARRAY
 			console.log($scope.contacts);
 
 		});
@@ -29,32 +27,32 @@ function MainController($scope, $http) {
 
 	$scope.addContact = function (person) {
 
-
 		$http.post(SERVER, person).then((resp) => {
 			//CREATED NEW OBJECT
-			console.log (resp);		
-
-			let person = {
-				name: resp.name, 
-				email: resp.email, 
-				website: resp.website, 
-				comments: resp.comments, 
-				id: $scope.contacts.length + 1
-			};
-
-			// $scope.contacts.push(person);
+			console.log ('response', resp);		
+			let person = resp.data; 
+			// let person = {
+			// 	name: resp.name, 
+			// 	email: resp.email, 
+			// 	website: resp.website, 
+			// 	comments: resp.comments, 
+			// 	id: $scope.contacts.length + 1
+			// };
+			console.log('person', person);
+			$scope.contacts.push(person);
+			console.log($scope.contacts);
 
 		})
 		
 	
 		//ADDING NEW PERSON TO ARRAY NAMED CONTACTS
 
-		console.log($scope.contacts);
+		// console.log($scope.contacts);
 		//CLEARING INPUT SO THAT PLACEHOLDERS SHOW UP AFTER PRESS SUBMIT BUTTON
-		$scope.person.name = " ";
-		$scope.person.email = " ";
-		$scope.person.website = " ";
-		$scope.person.comments = " ";
+		// $scope.person.name = " ";
+		// $scope.person.email = " ";
+		// $scope.person.website = " ";
+		// $scope.person.comments = " ";
 	}
 
 
