@@ -26,7 +26,7 @@
   			<p>
   				<label class="label">Email</label>
           <br/>
-  				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person)">
+  				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person.email)">
           <span class="input-error"> {{ errors.email }}</span>
   			</p>
 
@@ -34,16 +34,16 @@
   			<p>
   				<label class="label">Personal Website</label>
           <br/>
-  				<input type="url" name="website" placeholder="http://www.ssmith.com" ng-model="person.website" ng-keyup="validateWebsite(person.site)">
+  				<input type="url" name="website" placeholder="http://www.ssmith.com" ng-model="person.site" ng-keyup="validateWebsite(person.site)">
           <span class="input-error"> {{ errors.site }} </span>
   			</p>
 
 
   			<p>
   				<label class="label-area">Comments</label>
-          <span class="input-error"> {{ errors.msg }}</span>
+          <span class="input-error"> {{ errors.comments }}</span>
           <br/>
-  				<textarea type="textarea" name="comments" placeholder="A friendly message ..." ng-model="person.comments" ng-keyup="validateMsg(person.msg)"></textarea>
+  				<textarea type="textarea" name="comments" placeholder="A friendly message ..." ng-model="person.comments" ng-keyup="validateMsg(person.comments)"></textarea>
   			</p>
 
 
@@ -56,7 +56,7 @@
       <ul class="list"> List: 
         <li class="show-me" ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> 
           {{stuff.name}} 
-          
+
           <!-- {{ stuff._id }} -->
           <!--VARIABLE IN NG-CLICK MUST BE SAME AS NG-REPEAT-->
           <button class="delete-item" ng-click="deleteItem(stuff)">DELETE</button>
