@@ -56,11 +56,10 @@
       <ul class="list"> List: 
         <li class="show-me" ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> 
           {{stuff.name}} 
- <!--          <br/>
-          {{stuff.website}}
-          <br/>
-          {{stuff.comments}} -->
-          <button class="delete-item" ng-click="deleteItem(person)">DELETE</button>
+          
+          {{ stuff._id }}
+          <!--VARIABLE IN NG-CLICK MUST BE SAME AS NG-REPEAT-->
+          <button class="delete-item" ng-click="deleteItem(stuff)">DELETE</button>
         </li>
       </ul>
   	</div>

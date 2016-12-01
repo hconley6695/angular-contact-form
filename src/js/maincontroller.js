@@ -3,7 +3,7 @@ import { SERVER } from './server';
 
 function MainController($scope, $http) {
 	$scope.contacts = [];
-	// $scope.errors = {};
+	$scope.errors = {};
 
 
 	function init() {
@@ -37,14 +37,25 @@ function MainController($scope, $http) {
 		});
 	}
 
+	$scope.deleteItem = function (person) {
+		console.log(person._id);
+
+		$http.delete(SERVER + '/' + person._id).then((resp) => {
+			console.log(resp);
+			$scope.contacts = $scope.contacts.filter((obj) => {
+				return obj._id !== person._id;
+			});
+		});
+	}
+
 
 	// $scope.validateName = function (name) {
 	// 	if (name === '') {
 	// 		$scope.errors.name = "You must supply a name."
 
 	// 	};
-	// 	// HAD THIS LINE IN TO CLEAR TYPED IN DATA
-	// 	// $scope.errors = '';		
+		// HAD THIS LINE IN TO CLEAR TYPED IN DATA
+		// $scope.errors = '';		
 	// };
 
 	// $scope.validateEmail = function (email) {
