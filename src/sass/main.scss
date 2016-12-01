@@ -66,17 +66,33 @@ button {
 }
 
 .list {
-	border: 2px solid red;
-	height: 70px;
-	width: 300px;
+	width: 400px;
 	color: green;
 	display: block;
-	font-size: 10px;
+	font-size: 14px;
 	list-style: none;
+	padding: 10px;
+	box-sizing: border-box;
+	background-color: #ffffff;
 }
 
 li {
 	margin-top: 5px;
-
+	font-size: 10px;
+	border-bottom: .25px solid #666666;
+	position: relative;
+	height: 22px;
+	vertical-align: middle;
 }
+
+.delete-item {
+	width: 50px;
+	height: 20px;
+	position: absolute;
+	right: 5px;
+	bottom: 3px;
+}
+
+
+
 

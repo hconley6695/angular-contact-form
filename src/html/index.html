@@ -17,7 +17,7 @@
 
           <br/>
           
-  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person.name" ng-keyup="validateName(person)">
+  				<input name="name" type="text" placeholder="Sally Smith" ng-model="person.name" ng-keyup="validateName(person.name)">
 
           <span class="input-error">{{errors.name}}</span>
   			</p>
@@ -53,14 +53,14 @@
 
   	  </form>
 
-      <!--LIST IS COMMUNICATING CORRECTLY BUT NEED TO FIGURE OUT HOW TO TARGET NAME OF PERSON-->
-      <ul class="list"> Here is the list: 
+      <ul class="list"> List: 
         <li class="show-me" ng-repeat="stuff in contacts" data-id="{{ stuff.id }}"> 
           {{stuff.name}} 
  <!--          <br/>
           {{stuff.website}}
           <br/>
           {{stuff.comments}} -->
+          <button class="delete-item" ng-click="deleteItem(person)">DELETE</button>
         </li>
       </ul>
   	</div>
