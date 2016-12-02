@@ -29,7 +29,12 @@ function MainController($scope, $http) {
 				$scope.person.name = " ";
 				$scope.person.email = " ";
 				$scope.person.site = " ";
-				$scope.person.comments = " ";		
+				$scope.person.comments = " ";	
+
+				$scope.errors.name = " ";
+				$scope.errors.email = " ";
+				$scope.errors.site = " ";
+				$scope.errors.comments = " ";	
 
 			});
 		} else {
@@ -93,7 +98,7 @@ function MainController($scope, $http) {
 	}
 
 	$scope.validateMsg = function (comments) {
-		
+
 		if (comments === '') {
 			$scope.errors.comments = "Comments cannot be left empty."
 		};
