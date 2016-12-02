@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-	height: 400px;
+	// height: 400px;
 	width: 400px;
 	border: .5px solid black;
 	background-color: #ffffff;
@@ -21,6 +21,7 @@ body {
 	margin-right: auto;
 
 }
+
 
 h2 {
 	font-style: bold;
@@ -96,6 +97,8 @@ li {
 	position: absolute;
 	right: 5px;
 	bottom: 3px;
+	background-color: lighten(red, 5%);
+	border: .25px solid #666666;
 }
 
 
