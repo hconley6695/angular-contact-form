@@ -18,7 +18,7 @@
           <br/>
           
   				<input name="name" type="text" placeholder="Sally Smith" ng-model="person.name" ng-keyup="validateName(person.name)">
-
+          <br/>
           <span class="input-error">{{errors.name}}</span>
   			</p>
 
@@ -27,6 +27,7 @@
   				<label class="label">Email</label>
           <br/>
   				<input name="email" type="email" placeholder="ssmith@gmail.com" ng-model="person.email" ng-keyup="validateEmail(person.email)">
+          <br/>
           <span class="input-error"> {{ errors.email }}</span>
   			</p>
 
@@ -35,6 +36,7 @@
   				<label class="label">Personal Website</label>
           <br/>
   				<input type="url" name="website" placeholder="http://www.ssmith.com" ng-model="person.site" ng-keyup="validateWebsite(person.site)">
+          <br/>
           <span class="input-error"> {{ errors.site }} </span>
   			</p>
 

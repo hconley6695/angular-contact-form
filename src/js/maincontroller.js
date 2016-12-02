@@ -15,15 +15,11 @@ function MainController($scope, $http) {
 	init();
 
 	$scope.addContact = function (person) {
-		// if ($scope.validateEmail(person.email) && $scope.validateName(person.name) && $scope.validateWebsite(person.site) && $scope.validateMsg(person.msg)) {
-		if ($scope.validateName(person.name) && $scope.validateMsg(person.comments)) {	
+		//RUNS VALIDATIONS.  IF ALL ARE TRUE, WILL ADD THE CONTACT
+		if ($scope.validateName(person.name) && $scope.validateMsg(person.comments) && $scope.validateEmail(person.email) && $scope.validateWebsite(person.site)) {	
 			$http.post(SERVER, person).then((resp) => {
-				//CREATED NEW OBJECT
-				console.log ('response', resp);		
+				//CREATED NEW OBJECT	
 				let person = resp.data; 
-
-				console.log('person', person);
-
 
 				//ADDING NEW PERSON TO ARRAY NAMED CONTACTS
 				$scope.contacts.push(person);
@@ -32,66 +28,78 @@ function MainController($scope, $http) {
 				//CLEARING INPUT SO THAT PLACEHOLDERS SHOW UP AFTER PRESS SUBMIT BUTTON
 				$scope.person.name = " ";
 				$scope.person.email = " ";
-				$scope.person.website = " ";
+				$scope.person.site = " ";
 				$scope.person.comments = " ";		
 
 			});
 		} else {
+			//ALERTS ME TO AN ERROR
 			console.log("You have a problem.");
 		}
 	};
 
 	$scope.deleteItem = function (person) {
-		console.log(person._id);
+		// console.log(person._id);
 
 		$http.delete(SERVER + '/' + person._id).then((resp) => {
-			console.log(resp);
+			// console.log(resp);
+			//RETURN ALL OBJECTS FROM THE SERVER THAT DO NOT MATCH THIS ID
 			$scope.contacts = $scope.contacts.filter((obj) => {
 				return obj._id !== person._id;
 			});
 		});
 	}
 
-
+//VALIDATIONS--IF THIS CONDITIONS ARE TRUE, RETURN FALSE, IF NONE OF CONDITIONS ARE TRUE, RETURN TRUE
 	$scope.validateName = function (name) {
 		if (name === '') {
-			$scope.errors.name = "You must supply a name."
+			$scope.errors.name = "Name cannot be left empty."
 
 		};
+
+		return true;
 	};
 
-	// $scope.validateEmail = function (email) {
-	// 	if  (!email.includes('@')) {
-	// 		$scope.errors.email = "You must include an @ in your email address." 
-	// 		return false;
-	// 	}
+	$scope.validateEmail = function (email) {
+		console.log(email);
+		if  (!email.includes('@')) {
+			$scope.errors.email = "Your email address must include @." 
+			return false;
+		}
 		
-	// 	if (email === '' ) {
-	// 		$scope.errors.email = " ";
-	// 	} 
+		if (email === '' ) {
+			$scope.errors.email = " ";
+		} 
 
-	// 	return true;
-	// }
+		return true;
+
+	}
 
 
 
-	// $scope.validateWebsite = function (site) {
-	// 	if (!site.startsWith('http')) {
-	// 		$scope.errors.site = "You must supply a valid web address starting with http:// or https://"
-	// 		return false;
-	// 	}
+	$scope.validateWebsite = function (site) {
 
-	// 	if (site === '' ) {
-	// 		$scope.errors.site = " ";
-	// 	};
+		if (!site.startsWith('http')) {
+			$scope.errors.site = "You must supply a valid web address starting with http:// or https://"
+			return false;
+		}
 
-	// 	return true;
-	// }
+		if (site === '' ) {
+			$scope.errors.site = " ";
+		};
+
+		return true;
+
+	}
 
 	$scope.validateMsg = function (comments) {
+		
 		if (comments === '') {
-			$scope.errors.comments = "You must fill out a comment."
+			$scope.errors.comments = "Comments cannot be left empty."
 		};
+
+		return true;
+
 	}
 	
 
